@@ -28,7 +28,7 @@ section {
 }
 
 .container {
-  width: min(calc(100% - 4rem), 5.8rem);
+  width: min(calc(100% - 4rem), 70rem);
   @include md-up {
     width: min(calc(100% - 4rem), 71.6rem);
   }
