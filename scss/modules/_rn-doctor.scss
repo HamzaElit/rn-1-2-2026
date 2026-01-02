@@ -1,0 +1,223 @@
+.rn-doctor {
+    background-color: var(--White-Bg);
+    padding: 4rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+    @include md-up {
+        padding: 6rem 8rem;
+    }
+
+    @include xl-up {
+        padding: 10rem 9.6rem;
+    }
+
+    .container {
+        @include xl-up {
+            position: relative;
+        }
+    }
+
+    // Background decorative shape
+    &__background-shape {
+        position: absolute;
+        pointer-events: none;
+        z-index: 0;
+
+        // Mobile
+        left: -1rem;
+        top: -6.3rem;
+        width: 17.8rem;
+        height: 25.4rem;
+
+        @include md-up {
+            left: -4.2rem;
+            top: 0;
+            transform: translateY(-37%);
+            width: 28.7rem;
+            height: 40.9rem;
+        }
+
+        @include xl-up {
+            left: -12.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 51.2rem;
+            height: 73rem;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    // Main content wrapper
+    &__content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+
+        @include md-up {
+            gap: 3.2rem;
+        }
+
+        @include xl-up {
+            flex-direction: row;
+            align-items: center;
+            gap: 8rem;
+        }
+    }
+
+    // Text section
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+
+        @include md-up {
+            gap: 1.2rem;
+        }
+
+        @include xl-up {
+            text-align: left;
+            flex-shrink: 0;
+            width: 36rem;
+            gap: 1.6rem;
+        }
+    }
+
+    &__title {
+        font-family: var(--font-titles);
+        font-size: 3.5rem;
+        font-weight: 400;
+        line-height: 1.2;
+        color: var(--Blue);
+        margin: 0;
+
+        @include xl-up {
+            font-size: var(--h1-font-size);
+        }
+    }
+
+    &__subtitle {
+        font-family: var(--font-text);
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--Dark-Grey);
+        margin: 0;
+
+        @include md-up {
+            font-size: var(--body-font-l);
+        }
+    }
+
+    // Cards container
+    &__cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+
+        @include md-up {
+            flex-direction: row;
+            gap: 2.4rem;
+        }
+
+        @include xl-up {
+            flex: 1;
+            gap: 3.2rem;
+        }
+    }
+
+    // Individual doctor card
+    &__card {
+        background: var(--White);
+        border-radius: var(--radius-m);
+        overflow: hidden;
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+
+        @include md-up {
+            flex: 1;
+            border-radius: var(--radius-l);
+        }
+
+        @include xl-up {
+            max-width: 39.5rem;
+        }
+    }
+
+    &__card-image {
+        width: 100%;
+        height: 25.4rem;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+
+        @include md-up {
+            height: 29.3rem;
+        }
+
+        @include xl-up {
+            height: 29.3rem;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            display: block;
+        }
+    }
+
+    &__card-info {
+        background-color: var(--Light-Blue);
+        padding: 1.6rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        flex: 1;
+        justify-content: center;
+
+        @include md-up {
+            padding: 1.6rem;
+        }
+
+        @include xl-up {
+            padding: 2.4rem 1.6rem;
+        }
+    }
+
+    &__card-name {
+        font-family: var(--font-text);
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--Black);
+        margin: 0;
+
+        @include xl-up {
+            font-size: var(--subtitle-xl);
+        }
+    }
+
+    &__card-role {
+        font-family: var(--font-text);
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--Black);
+        margin: 0;
+
+        @include xl-up {
+            font-size: var(--body-font-l);
+        }
+    }
+}
