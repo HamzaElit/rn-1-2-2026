@@ -1,0 +1,94 @@
+@import "../mixins/mixins-master";
+:root {
+  --screen-xs-min: 385px;
+  --screen-sm-min: 391px;
+  --screen-md-min: 768px;
+  --screen-lg-min: 1024px;
+  --screen-xl-min: 1288px;
+  --screen-xxl-min: 1700px;
+
+  --Blue: #1A46DA;
+  --Primary: #1A46DA;
+  --Primary-2: #f0f7ff;
+  --Light-Blue: #DEEBFD;
+  --White-Bg: #FAFCFF;
+  --Secondary: #9e5d37;
+  --Secondary-2: #ffbd86;
+  --Secondary-3: #fff5eb;
+  --Black: #171717;
+  --Dark-Grey: #5A5A5A;
+  --Dark-Grey-2: #6A6A6A;
+  --Light-Grey: #CDCDCD;
+  --White: #FFFFFF;
+  --Pure-White: #FFFFFF;
+  --Cream: #FFFDEF;
+  --Yellow: #FFD66E;
+
+  --font-text: "Noto Sans", system-ui, sans-serif;
+  --font-titles: "Marcellus", serif;
+
+  --font__size_base: 16px;
+  --font__line-height-body: 140%;
+  --font__line-height-heading: 120%;
+
+  --body-font-s: 1.4rem;
+  --body-font-m: 1.6rem;
+  --body-font-l: 1.8rem;
+  --body-font-xl: 2rem;
+
+  --subtitle-l: 1.8rem;
+  --subtitle-xl: 2.2rem;
+
+  --h1-font-size: 4.2rem;
+  --h2-font-size: 3.5rem;
+  --display-font-size: 5rem;
+
+  --rn-block-gap__sm: 5.5rem;
+  --rn-block-gap__md: 6rem;
+  --rn-block-gap__lg: 12rem;
+  --block-gap: var(--rn-block-gap__sm);
+  @include md-up {
+    --block-gap: var(--rn-block-gap__md);
+  }
+  @include lg-up {
+    --block-gap: var(--rn-block-gap__lg);
+  }
+
+  --radius-m: 1.6rem;
+  --radius-l: 2rem;
+  --radius-xl: 2.4rem;
+  --border-radius: var(--radius-m);
+  @include lg-up {
+    --border-radius: var(--radius-l);
+  }
+
+  --body-font: var(--body-font-m);
+  --body-font-sm: var(--body-font-s);
+  @include md-up {
+    --body-font: var(--body-font-l);
+    --body-font-sm: var(--body-font-m);
+  }
+
+  --rn-font-s: 1.4rem;
+  --rn-font-s-lg: 1.6rem;
+  --body-font-s: var(--rn-font-s);
+  @include lg-up {
+    --body-font-s: var(--rn-font-s-lg);
+  }
+
+  --rn-btn-font-sm: 1.9102rem;
+  --rn-btn-font-lg: 2.6787rem;
+  --btn-font: var(--rn-btn-font-sm);
+  @include lg-up {
+    --btn-font: var(--rn-btn-font-lg);
+  }
+
+  --h2_font-size-sm: 3rem;
+  --h2_font-size-md: 4rem;
+  --h2_font-size: var(--h2_font-size-sm);
+  @include md-up {
+    --h2_font-size: var(--h2_font-size-md);
+  }
+
+  --columns: 12;
+}

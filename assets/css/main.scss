@@ -1,0 +1,7 @@
+/*General styles only*/
+@import "../../scss/variables-site/variables-site"; // Site variables
+@import "../../scss/mixins/mixins-master"; // Mixins
+@import "../../scss/base/normalize"; // Reset & noramlize
+@import "../../scss/components/components"; // Any custom parts like sliders  -  vimeo
+@import "../../scss/vendors/vendors";
+@import "../../scss/site/site"; // General site parts ( header / footer / breadcrumbs .. )

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.min.css">
+  <title>RN</title>
+</head>
+
+<body>
+  <header class="rn-header">
+    <div class="rn-header__container container">
+      <div class="rn-header__logo">
+        <img src="assets/images/Logo.svg" alt="Rhino Medica Logo">
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="rn-hero">
+      <div class="rn-hero__video-container">
+        <picture class="rn-hero__poster">
+          <source media="(min-width: 1024px)" srcset="assets/images/hero-desktop-cover.webp">
+          <source media="(min-width: 768px)" srcset="assets/images/hero-tablet-cover.webp">
+          <img src="assets/images/hero-mobile-cover.webp" alt="Hero background" class="rn-hero__poster-img">
+        </picture>
+        <video class="rn-hero__video" autoplay muted loop playsinline></video>
+        
+        <div class="rn-hero__badges">
+          <div class="rn-hero__badge">
+            <div class="rn-hero__badge-icon">
+              <img src="assets/images/hero-icon-1.svg" alt="">
+            </div>
+            <span>7.000+ erfolgreiche Behandlungen</span>
+          </div>
+          <div class="rn-hero__badge rn-hero__badge--white">
+            <div class="rn-hero__badge-icon">
+              <img src="assets/images/hero-icon-2.svg" alt="">
+            </div>
+            <span>Betreuung aus Berlin</span>
+          </div>
+          <div class="rn-hero__badge">
+            <div class="rn-hero__badge-icon">
+              <img src="assets/images/hero-icon-3.svg" alt="">
+            </div>
+            <span>Flexible Ratenzahlung</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="rn-hero__content">
+        <div class="rn-hero__text">
+          <h1 class="rn-hero__title">
+            Lerne dein <span class="text-blue">Spiegelbild</span><br>wieder zu lieben
+          </h1>
+          <p class="rn-hero__subtitle">
+            In nur 7 Tagen zu Deiner Wunschnase in Istanbul
+          </p>
+        </div>
+        <button class="rn-hero__cta">Angebot anfordern</button>
+      </div>
+    </section>
+    <!-- /  rn-hero -->
+
+  </main>
+  <footer class="rn-footer darkBLue-bg">
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script>
+    // HLS video player initialization
+    const video = document.querySelector('.rn-hero__video');
+    const videoSrc = 'https://customer-w81idgf5f15j199r.cloudflarestream.com/28c22f31fa7464e3cd253dd5f5202583/manifest/video.m3u8';
+    
+    if (video) {
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support (Safari)
+        video.src = videoSrc;
+      } else if (Hls.isSupported()) {
+        // Use hls.js for other browsers
+        const hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+      }
+    }
+  </script>
+  <script defer src="assets/js/embla-carousel.umd.js"></script>
+  <script defer src="assets/js/custom.js"></script>
+</body>
+
+
+</html>
