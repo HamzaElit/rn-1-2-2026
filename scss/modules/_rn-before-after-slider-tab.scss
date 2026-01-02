@@ -1,0 +1,331 @@
+.rn-before-after-slider-tab {
+  background-color: var(--White-Bg);
+  padding: 4rem 0;
+
+  @include md-up {
+    padding: 6rem 0;
+  }
+
+  @include lg-up {
+    padding: 8rem 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include md-up {
+      gap: 2.4rem;
+    }
+
+    @include lg-up {
+      gap: 3.2rem;
+    }
+  }
+
+  // Header Section
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+
+    @include md-up {
+      gap: 1.2rem;
+    }
+
+    @include lg-up {
+      gap: 1.6rem;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-titles);
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--Blue);
+    margin: 0;
+
+    @include lg-up {
+      font-size: 4.2rem;
+    }
+  }
+
+  &__subtitle {
+    font-family: var(--font-text);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--Dark-Grey);
+    margin: 0;
+
+    @include md-up {
+      font-size: 1.8rem;
+    }
+  }
+
+  // Tabs Wrapper
+  &__tabs-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  // Gender Tabs
+  &__gender-tabs {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--Light-Grey);
+  }
+
+  &__gender-tab {
+    flex: 1;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 1.6rem 0;
+    font-family: var(--font-text);
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--Dark-Grey);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    bottom: -1px;
+
+    @include md-up {
+      font-size: 1.8rem;
+    }
+
+    @include lg-up {
+      padding: 2rem 0;
+      font-size: 2.2rem;
+    }
+
+    &:hover {
+      color: var(--Blue);
+    }
+
+    &.active {
+      color: var(--Black);
+      border-bottom-color: var(--Blue);
+    }
+  }
+
+  // Type Tabs
+  &__type-tabs {
+    display: flex;
+    gap: 1.6rem;
+    justify-content: space-between;
+
+    @include md-up {
+      gap: 2rem;
+    }
+
+    @include lg-up {
+      gap: 2.4rem;
+    }
+  }
+
+  &__type-tab {
+    flex: 1;
+    background: var(--White);
+    border: 1px solid var(--Light-Grey);
+    border-radius: 50px;
+    padding: 0.6rem 1.4rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-text);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--Dark-Grey);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    @include md-up {
+      padding: 1rem 1.4rem;
+      height: 4.5rem;
+      font-size: 1.8rem;
+    }
+
+    @include lg-up {
+      padding: 1.6rem 2rem;
+      height: 5.6rem;
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      border-color: var(--Blue);
+      color: var(--Blue);
+    }
+
+    &.active {
+      background: var(--Light-Blue);
+      border-color: var(--Light-Blue);
+      color: var(--Blue);
+      font-weight: 700;
+    }
+  }
+
+  // Sliders Wrapper
+  &__sliders-wrapper {
+    position: relative;
+  }
+
+  // Panel
+  &__panel {
+    display: none;
+    position: relative;
+
+    &.active {
+      display: block;
+    }
+
+    .embla__viewport {
+      overflow: hidden;
+    }
+
+    .embla__container {
+      display: flex;
+      gap: 1.6rem;
+
+      @include md-up {
+        gap: 2.4rem;
+      }
+
+      @include lg-up {
+        gap: 3.2rem;
+      }
+    }
+
+    .embla__slide {
+      flex: 0 0 auto;
+      min-width: 0;
+      width: 28rem;
+
+      @include md-up {
+        width: 32.5rem;
+      }
+
+      @include lg-up {
+        width: 44rem;
+      }
+    }
+  }
+
+  // Slide Item
+  &__slide-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    background: var(--Light-Grey);
+
+    @include md-up {
+      border-radius: 1.6rem;
+    }
+
+    @include lg-up {
+      border-radius: 2rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // Embla Buttons
+  .embla__buttons {
+    display: flex;
+    gap: 2.4rem;
+    justify-content: center;
+    margin-top: 2.4rem;
+    margin-bottom: 0;
+
+    @include md-up {
+      gap: 3.2rem;
+      margin-top: 3.2rem;
+    }
+
+    @include lg-up {
+      gap: 3.2rem;
+      margin-top: 3.2rem;
+    }
+  }
+
+  .embla__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    @include md-up {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    @include lg-up {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    &:hover:not(:disabled) {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  .embla__prev {
+    svg {
+      transform: rotate(0deg);
+    }
+  }
+
+  .embla__next {
+    svg {
+      transform: rotate(0deg);
+    }
+  }
+
+  // Screen reader only
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+

@@ -36,61 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const primaryButtons = document.querySelectorAll("[data-primary-nav]");
-  const subButtons = document.querySelectorAll("[data-sub-nav]");
-  const sliders = document.querySelectorAll(".multi-slider__slider");
-
-  let activePrimary = document.querySelector("[data-primary-nav].active")
-    ?.dataset.primaryNav;
-  let activeSub = document.querySelector("[data-sub-nav].active")?.dataset
-    .subNav;
-
-  function updateActiveSlider() {
-    sliders.forEach((slider) => {
-      const isMatch =
-        slider.dataset.primarySlider === activePrimary &&
-        slider.dataset.sebNav === activeSub;
-
-      slider.classList.toggle("active", isMatch);
-    });
-  }
-
-  primaryButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // Toggle active class for primary buttons
-      primaryButtons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      activePrimary = button.dataset.primaryNav;
-
-      // Optionally reset sub nav to first child when primary changes
-      const firstSub = document.querySelector(
-        ".multi-slider__header-nav-secondary button"
-      );
-      subButtons.forEach((btn) => btn.classList.remove("active"));
-      firstSub.classList.add("active");
-      activeSub = firstSub.dataset.subNav;
-
-      updateActiveSlider();
-    });
-  });
-
-  subButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // Toggle active class for sub buttons
-      subButtons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      activeSub = button.dataset.subNav;
-      updateActiveSlider();
-    });
-  });
-
-  // Initial sync
-  updateActiveSlider();
-
-  // Import EmblaCarousel from the appropriate module
-
   const embla__sliders = document.querySelectorAll(".embla");
 
   embla__sliders.forEach((embla__slider) => {
@@ -315,103 +260,109 @@ document.addEventListener("DOMContentLoaded", () => {
       .on("reInit", handleSlideVideos);
   });
 
-  (function () {
-    const DESKTOP_BREAKPOINT = 834;
+  // Before-After Slider Tab functionality
+  (() => {
+    const sliderSection = document.querySelector(".rn-before-after-slider-tab");
+    if (!sliderSection) return;
 
-    const TOP_OFFSET_DESKTOP = 500;
-    const TOP_OFFSET_MOBILE = 600;
+    const genderTabs = sliderSection.querySelectorAll(".rn-before-after-slider-tab__gender-tab");
+    const typeTabs = sliderSection.querySelectorAll(".rn-before-after-slider-tab__type-tab");
+    const panels = sliderSection.querySelectorAll(".rn-before-after-slider-tab__panel");
 
-    const SWITCH_DELAY = 10;
+    let currentGender = "female";
+    let currentType = "hocker";
 
-    const list = document.querySelector(".rn-animated-steps__list");
-    if (!list) return;
+    const emblaInstances = new Map();
 
-    const items = Array.from(
-      list.querySelectorAll(".rn-animated-steps__list-item")
-    );
+    function initializeEmblaForPanel(panel) {
+      const viewportNode = panel.querySelector(".embla__viewport");
+      const prevButton = panel.querySelector(".embla__prev");
+      const nextButton = panel.querySelector(".embla__next");
 
-    let switchTimeout = null;
+      if (!viewportNode) return;
 
-    function getTopOffset() {
-      return window.innerWidth > DESKTOP_BREAKPOINT
-        ? TOP_OFFSET_DESKTOP
-        : TOP_OFFSET_MOBILE;
+      const options = {
+        loop: false,
+        align: "start",
+        slidesToScroll: 1,
+        containScroll: "trimSnaps",
+        breakpoints: {
+          "(min-width: 768px)": {
+            slidesToScroll: 1
+          },
+          "(min-width: 992px)": {
+            slidesToScroll: 1
+          }
+        }
+      };
+
+      const emblaApi = EmblaCarousel(viewportNode, options);
+
+      const toggleButtonsState = () => {
+        if (prevButton) {
+          const canScrollPrev = emblaApi.canScrollPrev();
+          prevButton.disabled = !canScrollPrev;
+        }
+        if (nextButton) {
+          const canScrollNext = emblaApi.canScrollNext();
+          nextButton.disabled = !canScrollNext;
+        }
+      };
+
+      prevButton?.addEventListener("click", () => {
+        emblaApi.scrollPrev();
+      });
+
+      nextButton?.addEventListener("click", () => {
+        emblaApi.scrollNext();
+      });
+
+      emblaApi
+        .on("init", toggleButtonsState)
+        .on("select", toggleButtonsState)
+        .on("reInit", toggleButtonsState);
+
+      return emblaApi;
     }
 
-    function setAnimatedStepsMinHeight() {
-      if (window.innerWidth <= DESKTOP_BREAKPOINT) {
-        list.style.minHeight = "";
-        return;
-      }
+    function updateActivePanel() {
+      panels.forEach((panel) => {
+        const panelGender = panel.dataset.gender;
+        const panelType = panel.dataset.type;
+        const isActive = panelGender === currentGender && panelType === currentType;
 
-      const activeItem = list.querySelector(
-        ".rn-animated-steps__list-item.active"
-      );
-      if (!activeItem) return;
+        panel.classList.toggle("active", isActive);
 
-      let previousItemsHeight = 0;
-      for (const item of items) {
-        if (item === activeItem) break;
-        previousItemsHeight += item.offsetHeight;
-      }
-
-      const img = activeItem.querySelector("img");
-      const imageHeight = img ? img.offsetHeight : 0;
-
-      list.style.minHeight = `${previousItemsHeight + imageHeight}px`;
-    }
-
-    function setActiveItem(item) {
-      if (!item || item.classList.contains("active")) return;
-
-      items.forEach((i) => i.classList.remove("active"));
-      item.classList.add("active");
-
-      setAnimatedStepsMinHeight();
-    }
-
-    function onScroll() {
-      const topOffset = getTopOffset();
-
-      let closestItem = null;
-      let minDistance = Infinity;
-
-      items.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        const distance = Math.abs(rect.bottom - topOffset);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestItem = item;
+        if (isActive && !emblaInstances.has(panel)) {
+          const emblaApi = initializeEmblaForPanel(panel);
+          if (emblaApi) {
+            emblaInstances.set(panel, emblaApi);
+          }
         }
       });
-
-      if (!closestItem) return;
-
-      clearTimeout(switchTimeout);
-      switchTimeout = setTimeout(() => {
-        setActiveItem(closestItem);
-      }, SWITCH_DELAY);
     }
 
-    // ---------- Click handling ----------
-    items.forEach((item) => {
-      item.addEventListener("click", () => {
-        clearTimeout(switchTimeout);
-        setActiveItem(item);
+    genderTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        genderTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        currentGender = tab.dataset.gender;
+        updateActivePanel();
       });
     });
 
-    // ---------- Init ----------
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("load", () => {
-      onScroll();
-      setAnimatedStepsMinHeight();
+    typeTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        typeTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        currentType = tab.dataset.type;
+        updateActivePanel();
+      });
     });
-    window.addEventListener("resize", () => {
-      onScroll();
-      setAnimatedStepsMinHeight();
-    });
+
+    updateActivePanel();
   })();
+
 });
 
 window.addEventListener("load", function () {
