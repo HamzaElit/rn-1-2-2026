@@ -88,41 +88,66 @@ section {
 }
 
 .btn {
-  padding: 1.7rem 2rem 1.5rem 2rem;
-  color: var(--Mint-Green);
-  border-radius: 7.9592rem;
-
-  background: transparent;
-  color: var(--Primary);
-  border: solid 1px var(--Primary);
-  text-align: center;
-  font-family: var(--font-titles);
-  font-size: var(--btn-font);
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1;
+  // Base button styles
+  display: inline-block;
   font-family: var(--font-text);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  padding: 1.4rem 6rem;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  width: 100%;
+  @include transition(all 0.3s ease);
+
+  @include md-up {
+    width: 36rem;
+  }
 
   @include lg-up {
-    border-radius: 9.4789rem;
-    padding: 1.85rem 4rem 1.55rem 4rem;
+    width: 38rem;
+    font-size: 1.8rem;
   }
 
-  &.active {
-    background-color: var((--Primary));
-    color: var(--White);
+  // Primary button (Blue background)
+  &--primary {
+    background-color: var(--Blue);
+    color: var(--Cream);
+
+    @include hover {
+      background-color: darken(#1A46DA, 8%);
+      @include transform(translateY(-2px));
+      @include box-shadow(0 4px 12px rgba(26, 70, 218, 0.3));
+    }
+
+    &:active {
+      @include transform(translateY(0));
+    }
   }
 
+  // Secondary button (Yellow background)
+  &--secondary {
+    background-color: var(--Yellow);
+    color: var(--Blue);
+
+    @include hover {
+      background-color: darken(#FFD66E, 8%);
+      @include transform(translateY(-2px));
+      @include box-shadow(0 4px 12px rgba(255, 214, 110, 0.4));
+    }
+
+    &:active {
+      @include transform(translateY(0));
+    }
+  }
+
+  // Small button variant
   &--small {
     font-size: 1.4rem;
-  }
-
-  &--secondary {
-    color: var(--Secondary-2);
-    border: solid 1px var(--Secondary-2);
-    &.active {
-      background-color: var(--Secondary-2);
-    }
+    padding: 1.2rem 4rem;
   }
 }
 

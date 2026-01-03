@@ -500,26 +500,43 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", function () {
-  document.querySelectorAll(".rn-custom-vimeo")?.forEach(function (e) {
-    e.addEventListener("click", function () {
-      document.querySelectorAll(".rn-custom-vimeo").forEach(function (e) {
-        e.classList.remove("active");
+  // Vimeo video player functionality
+  document.querySelectorAll(".rn-custom-vimeo")?.forEach(function (videoCard) {
+    videoCard.addEventListener("click", function () {
+      // If already playing, don't recreate the iframe
+      if (videoCard.classList.contains("active")) return;
+      
+      // Close all other videos
+      document.querySelectorAll(".rn-custom-vimeo").forEach(function (card) {
+        card.classList.remove("active");
+        const wrapper = card.querySelector(".rn-custom-vimeo__iframe-wrp");
+        if (wrapper) {
+          wrapper.innerHTML = "";
+        }
       });
-      const t = this.getAttribute("data-vimeo-id"),
-        o = document.createElement("iframe"),
-        l = e.querySelector(".rn-custom-vimeo__iframe-wrp");
-      (o.src = "https://player.vimeo.com/video/" + t + "?autoplay=1"),
-        (o.frameBorder = "0"),
-        (o.allow = "autoplay; fullscreen; picture-in-picture"),
-        (o.style.width = "100%"),
-        (o.style.height = "100%"),
-        (o.style.position = "absolute"),
-        (o.style.top = "0"),
-        (o.style.left = "0"),
-        (o.allowFullscreen = !0),
-        (l.innerHTML = ""),
-        e.classList.add("active"),
-        l.appendChild(o);
+
+      // Get video ID and create iframe
+      const vimeoId = this.getAttribute("data-vimeo-id");
+      const iframe = document.createElement("iframe");
+      const iframeWrapper = videoCard.querySelector(".rn-custom-vimeo__iframe-wrp");
+      
+      if (!vimeoId || !iframeWrapper) return;
+
+      // Set iframe attributes
+      iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1`;
+      iframe.frameBorder = "0";
+      iframe.allow = "autoplay; fullscreen; picture-in-picture";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.position = "absolute";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.allowFullscreen = true;
+
+      // Add iframe to wrapper and mark as active
+      iframeWrapper.innerHTML = "";
+      iframeWrapper.appendChild(iframe);
+      videoCard.classList.add("active");
     });
   });
 });
