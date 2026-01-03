@@ -363,6 +363,140 @@ document.addEventListener("DOMContentLoaded", () => {
     updateActivePanel();
   })();
 
+  // RN Steps Accordion functionality
+  (() => {
+    const stepsSection = document.querySelector(".rn-steps");
+    if (!stepsSection) return;
+
+    const cards = stepsSection.querySelectorAll(".rn-steps__card");
+    const readMoreButtons = stepsSection.querySelectorAll(".rn-steps__read-more");
+
+    readMoreButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const stepNumber = this.getAttribute("data-step-trigger");
+        const targetCard = stepsSection.querySelector(`.rn-steps__card[data-step="${stepNumber}"]`);
+        
+        if (!targetCard) return;
+
+        // Check if the clicked card is already active
+        const isAlreadyActive = targetCard.classList.contains("rn-steps__card--active");
+        
+        if (isAlreadyActive) return; // Don't do anything if already active
+
+        // Remove active state from all cards and add collapsed state
+        cards.forEach((card) => {
+          card.classList.remove("rn-steps__card--active");
+          card.classList.add("rn-steps__card--collapsed");
+          
+          // Hide checklist for all cards
+          const checklist = card.querySelector(".rn-steps__checklist");
+          if (checklist) {
+            checklist.classList.add("rn-steps__checklist--hidden");
+          }
+
+          // Update card content background
+          const cardContent = card.querySelector(".rn-steps__card-content");
+          if (cardContent) {
+            cardContent.classList.remove("rn-steps__card-content--blue");
+            cardContent.classList.add("rn-steps__card-content--light");
+          }
+
+          // Update title color
+          const cardTitle = card.querySelector(".rn-steps__card-title");
+          if (cardTitle) {
+            cardTitle.classList.remove("rn-steps__card-title--white");
+            cardTitle.classList.add("rn-steps__card-title--black");
+          }
+
+          // // Update check icons to black version
+          // const checkIcons = card.querySelectorAll(".rn-steps__checklist-icon-img");
+          // checkIcons.forEach((icon) => {
+          //   icon.src = "assets/images/check-circle.svg";
+          // });
+
+          // Update checklist text color to black
+          const checklistTexts = card.querySelectorAll(".rn-steps__checklist-text");
+          checklistTexts.forEach((text) => {
+            text.style.color = "var(--Black)";
+          });
+
+          // Reset icon rotation
+          const icon = card.querySelector(".rn-steps__read-more-icon");
+          if (icon) {
+            icon.classList.remove("rn-steps__read-more-icon--rotated");
+          }
+        });
+
+        // Add active state to clicked card
+        targetCard.classList.add("rn-steps__card--active");
+        targetCard.classList.remove("rn-steps__card--collapsed");
+
+        // Show checklist for active card
+        const activeChecklist = targetCard.querySelector(".rn-steps__checklist");
+        if (activeChecklist) {
+          activeChecklist.classList.remove("rn-steps__checklist--hidden");
+        }
+
+        // Update card content background to blue
+        const activeCardContent = targetCard.querySelector(".rn-steps__card-content");
+        if (activeCardContent) {
+          activeCardContent.classList.remove("rn-steps__card-content--light");
+          activeCardContent.classList.add("rn-steps__card-content--blue");
+        }
+
+        // Update title color to white
+        const activeCardTitle = targetCard.querySelector(".rn-steps__card-title");
+        if (activeCardTitle) {
+          activeCardTitle.classList.remove("rn-steps__card-title--black");
+          activeCardTitle.classList.add("rn-steps__card-title--white");
+        }
+
+        // Update check icons to white version
+        // const activeCheckIcons = targetCard.querySelectorAll(".rn-steps__checklist-icon-img");
+        // activeCheckIcons.forEach((icon) => {
+        //   icon.src = "assets/images/check.svg";
+        // });
+
+        // Update checklist text color to white
+        const activeChecklistTexts = targetCard.querySelectorAll(".rn-steps__checklist-text");
+        activeChecklistTexts.forEach((text) => {
+          text.style.color = "var(--White-Bg)";
+        });
+
+        // Rotate icon for active card
+        const activeIcon = targetCard.querySelector(".rn-steps__read-more-icon");
+        if (activeIcon) {
+          activeIcon.classList.add("rn-steps__read-more-icon--rotated");
+        }
+
+        // Hide the read more button for the active card
+        const activeButton = targetCard.querySelector(".rn-steps__read-more");
+        if (activeButton) {
+          activeButton.style.display = "none";
+        }
+
+        // Show read more buttons for inactive cards
+        cards.forEach((card) => {
+          if (card !== targetCard) {
+            const inactiveButton = card.querySelector(".rn-steps__read-more");
+            if (inactiveButton) {
+              inactiveButton.style.display = "flex";
+            }
+          }
+        });
+      });
+    });
+
+    // Initialize: Hide the read more button for the first card (active by default)
+    const firstCard = stepsSection.querySelector('.rn-steps__card[data-step="1"]');
+    if (firstCard) {
+      const firstButton = firstCard.querySelector(".rn-steps__read-more");
+      if (firstButton) {
+        firstButton.style.display = "none";
+      }
+    }
+  })();
+
 });
 
 window.addEventListener("load", function () {
