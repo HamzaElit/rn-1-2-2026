@@ -230,10 +230,9 @@
     display: flex;
     gap: 24px;
     align-items: center;
-    order: 1;
-
-    @media (min-width: 992px) {
-      order: 0;
+    margin: 15px auto 10px auto;
+    @include md-up {
+        margin: 15px auto 0 auto;
     }
   }
 
