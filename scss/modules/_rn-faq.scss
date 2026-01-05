@@ -220,13 +220,16 @@
 
     p {
       font-family: var(--font-text);
-      font-size: 1.6rem;
+      font-size: 1.6rem !important;
       line-height: 1.4;
       color: var(--Black);
       font-weight: 400;
+      em {
+        font-weight: 700;
+      }
 
       @include lg-up {
-        font-size: 1.8rem;
+        font-size: 1.8rem !important;
       }
     }
   }
