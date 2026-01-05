@@ -363,6 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateActivePanel();
   })();
 
+
   // RN Steps Accordion functionality
   (() => {
     const stepsSection = document.querySelector(".rn-steps");

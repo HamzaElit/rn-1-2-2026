@@ -59,6 +59,11 @@
       --slide-size-lg: 28%;
     }
   }
+  &.em__threeColumns-02 {
+    --slide-size: 100%; // Base mobile size
+    --slide-size-sm: 55%;
+    --slide-size-lg: 29%;
+  }
 
   &.em__sp-5 {
     --slide-spacing: 5px;
@@ -132,24 +137,12 @@
     background-color: #fff;
     border: solid 1px var(--Deep-Blue);
     border-radius: 50%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8.33367 20H31.667" stroke="%23040B85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20.0003 31.6673L31.667 20.0006L20.0003 8.33398" stroke="%23040B85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
     background-size: 30px;
     transition: 0.3s all ease;
     @include lg-up {
       width: 7rem;
       height: 7rem;
       background-size: 3.6rem;
-    }
-    &.primaryColor {
-      background-image: url('data:image/svg+xml,<svg id="arrow-left-right-svgrepo-com" xmlns="http://www.w3.org/2000/svg" viewBox="27.78 0 13.45 24.7"><path id="Pfad_43467" data-name="Pfad 43467" d="M16.394,29.545a1.872,1.872,0,0,0,2.647,0l9.15-9.159a3.744,3.744,0,0,0,0-5.294L19.035,5.938a1.872,1.872,0,0,0-2.647,2.648l7.836,7.836a1.872,1.872,0,0,1,0,2.647L16.394,26.9A1.872,1.872,0,0,0,16.394,29.545Z" transform="translate(11.941 -5.39)" fill="%23040B85"/></svg>');
-    }
-    &--prev {
-      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M31.6663 20H8.33301" stroke="%23040B85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.9997 31.6673L8.33301 20.0006L19.9997 8.33398" stroke="%23040B85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-      &.primaryColor {
-        background-image: url('data:image/svg+xml,<svg id="arrow-left-right-svgrepo-com" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.44 24.68"><path id="Pfad_43468" data-name="Pfad 43468" d="M13.893,5.938a1.872,1.872,0,0,0-2.648,0L2.1,15.1a3.744,3.744,0,0,0,0,5.294l9.155,9.155A1.872,1.872,0,0,0,13.9,26.9L6.063,19.062a1.872,1.872,0,0,1,0-2.647l7.829-7.829A1.872,1.872,0,0,0,13.893,5.938Z" transform="translate(-1 -5.39)" fill="%23040B85"/></svg>');
-      }
     }
     &.is-disabled {
       opacity: 0.5;
@@ -253,7 +246,6 @@
 }
 
 .embla__prev {
-  background-image: url('data:image/svg+xml,<svg id="Group_27" data-name="Group 27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11.545" height="12.224" viewBox="0 0 11.545 12.224"><defs><clipPath id="clip-path"><rect id="Rectangle_17" data-name="Rectangle 17" width="11.545" height="12.224" transform="translate(0 0)" fill="%23fff"/></clipPath></defs><g id="Group_7" data-name="Group 7" transform="translate(0 0)" clip-path="url(%23clip-path)"><path id="Path_25" data-name="Path 25" d="M0,6.318a.9.9,0,0,0,.9.9H8.877L5,11.1a.9.9,0,0,0,1.276,1.277l5.415-5.415h0a.894.894,0,0,0,.113-.138c.015-.022.025-.046.037-.069a.867.867,0,0,0,.045-.086.877.877,0,0,0,.028-.092c.008-.026.018-.05.023-.077a.905.905,0,0,0,0-.354c-.005-.026-.015-.051-.023-.077a.528.528,0,0,0-.074-.178c-.013-.023-.023-.047-.037-.069a.907.907,0,0,0-.113-.138L6.279.264A.9.9,0,0,0,5,1.541L8.877,5.416H.9a.9.9,0,0,0-.9.9" transform="translate(-0.207 -0.303)" fill="%23fff"/></g></svg>');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 12px; // Mobile size first
@@ -264,7 +256,6 @@
 }
 
 .embla__next {
-  background-image: url('data:image/svg+xml,<svg id="Group_27" data-name="Group 27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11.545" height="12.224" viewBox="0 0 11.545 12.224"><defs><clipPath id="clip-path"><rect id="Rectangle_17" data-name="Rectangle 17" width="11.545" height="12.224" fill="%23fff"/></clipPath></defs><g id="Group_7" data-name="Group 7" transform="translate(0 0)" clip-path="url(%23clip-path)"><path id="Path_25" data-name="Path 25" d="M11.959,6.318a.9.9,0,0,1-.9.9H3.081L6.956,11.1a.9.9,0,0,1-1.276,1.277L.264,6.957h0a.9.9,0,0,1-.113-.138C.137,6.8.127,6.773.114,6.749a.867.867,0,0,1-.045-.086A.877.877,0,0,1,.04,6.572c-.008-.026-.018-.05-.023-.077a.905.905,0,0,1,0-.354c.005-.026.015-.051.023-.077a.877.877,0,0,1,.028-.092.871.871,0,0,1,.045-.086c.013-.023.023-.047.037-.069A.907.907,0,0,1,.264,5.68L5.679.264A.9.9,0,0,1,6.956,1.541L3.081,5.416h7.975a.9.9,0,0,1,.9.9" transform="translate(-0.207 -0.303)" fill="%23fff"/></g></svg>');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 12px; // Mobile size first

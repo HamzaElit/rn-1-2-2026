@@ -1,0 +1,404 @@
+// ========================================
+// Google Reviews Section
+// ========================================
+
+.rn-google-reviews {
+  background-color: var(--White-Bg);
+  padding: 40px 0 32px;
+
+  @include md-up {
+    padding: 60px 0 32px;
+  }
+
+  @include lg-up {
+    padding: 60px 0 40px;
+  }
+
+  // Header
+  &__header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 32px;
+    gap: 32px;
+
+    @include lg-up {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+
+    @include lg-up {
+      align-items: flex-start;
+      width: auto;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-marcellus);
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--Blue);
+    margin: 0;
+
+    @include md-up {
+      font-size: 35px;
+    }
+
+    @include lg-up {
+      font-size: 42px;
+    }
+  }
+
+  &__subtitle {
+    font-family: var(--font-noto-sans);
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--Black);
+    margin: 0;
+
+    @include lg-up {
+      font-size: 18px;
+      color: var(--Dark-Grey);
+    }
+  }
+
+  // Rating Container (Desktop Header)
+  &__rating-container {
+    display: none;
+
+    @include lg-up {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.04);
+      padding: 13px 20px;
+    }
+  }
+
+  &__rating-content {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+  }
+
+  &__rating-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  &__rating-number {
+    font-family: var(--font-jakarta);
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 1;
+    color: #4285f4;
+    margin: 0;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+
+    img {
+      height: 20px;
+      width: auto;
+    }
+  }
+
+  &__google-logo {
+    margin-left: 32px;
+    margin-right: 18px;
+    
+    img {
+      width: 70px;
+      height: auto;
+    }
+  }
+
+  &__google-logo-desktop {
+    display: block;
+  }
+
+  &__google-logo-mobile {
+    display: none;
+  }
+
+  &__rating-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__google-text {
+    font-family: var(--font-jakarta);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    color: #6a6a6a;
+    margin: 0;
+  }
+
+  &__bewertung-text {
+    font-family: var(--font-jakarta);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #6a6a6a;
+    margin: 0;
+  }
+
+  // Desktop Slider
+  &__desktop-slider {
+    display: none;
+    margin-bottom: 40px;
+
+    @include lg-up {
+      display: block;
+    }
+
+    .embla__viewport {
+      padding: 5px 5px 15px 5px;
+    }
+
+    .embla__container {
+      display: flex;
+      gap: 32px;
+    }
+
+    .embla__slide {
+      min-width: 0;
+    }
+
+    .embla__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 32px;
+    }
+  }
+
+  // Column for desktop (2 cards stacked)
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  // Mobile/Tablet Slider
+  &__mobile-slider {
+    display: block;
+    margin-bottom: 32px;
+
+    @include lg-up {
+      display: none;
+    }
+
+    .embla__viewport {
+      overflow: hidden;
+      padding: 5px 5px 15px 5px;
+    }
+
+    .embla__container {
+      display: flex;
+      gap: 16px;
+
+      @include md-up {
+        gap: 24px;
+      }
+    }
+
+    .embla__slide {
+      min-width: 0;
+    }
+
+    .embla__buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 24px;
+    }
+  }
+
+  // Review Card
+  &__card {
+    background: white;
+    border: 0.5px solid #3686f7;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.09), 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include lg-up {
+      border-radius: 20px;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__user-name {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  &__rating-stars {
+    height: 24px;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 24px;
+      width: auto;
+    }
+  }
+
+  &__review-text {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  // Footer
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    @include lg-up {
+      gap: 32px;
+    }
+  }
+
+  // Rating Footer (Mobile/Tablet)
+  &__rating-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @include lg-up {
+      display: none;
+    }
+  }
+
+  &__rating-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 65px;
+  }
+
+  &__rating-number-footer {
+    font-family: var(--font-urbanist);
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1;
+    color: #000000;
+    margin: 0;
+  }
+
+  &__bewertung-text-footer {
+    font-family: var(--font-inter);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    color: #121212;
+    margin: 0;
+  }
+
+  &__brand-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 130px;
+  }
+
+  &__google-logo-footer {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &__stars-footer {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 20px;
+      width: auto;
+    }
+  }
+
+  // CTA Button
+  .btn {
+    width: 100%;
+    max-width: 100%;
+
+    @include md-up {
+      width: 360px;
+    }
+
+    @include lg-up {
+      width: 380px;
+    }
+  }
+}
+
