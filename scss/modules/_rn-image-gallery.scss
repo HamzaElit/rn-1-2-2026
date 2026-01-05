@@ -1,0 +1,29 @@
+.rn-image-gallery{
+    padding: 16px 0 60px;
+    position: relative;
+    @include md-up {
+        padding: 32px 0 80px;
+    }
+    @include lg-up {
+        padding: 40px 0 100px;
+    }
+    &__poster{
+        position: relative;
+        z-index: 2;
+        &-img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &-bg{
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

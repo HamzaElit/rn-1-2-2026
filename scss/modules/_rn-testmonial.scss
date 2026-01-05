@@ -225,58 +225,6 @@
       margin-top: 0;
     }
   }
-
-  .embla__buttons {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    margin: 15px auto 10px auto;
-    @include md-up {
-        margin: 15px auto 0 auto;
-    }
-  }
-
-  .embla__button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease, transform 0.2s ease;
-
-    &:hover:not(:disabled) {
-      opacity: 0.8;
-      transform: scale(1.05);
-    }
-
-    &:disabled,
-    &.is-disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-    svg {
-      display: block;
-
-      &.desktop {
-        display: none;
-
-        @media (min-width: 992px) {
-          display: block;
-        }
-      }
-
-      &.mobile {
-        display: block;
-
-        @media (min-width: 992px) {
-          display: none;
-        }
-      }
-    }
-  }
 }
 
 // Vimeo iframe wrapper

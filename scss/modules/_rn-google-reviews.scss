@@ -81,10 +81,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.04);
-      padding: 13px 20px;
     }
   }
 
@@ -124,12 +120,10 @@
   }
 
   &__google-logo {
-    margin-left: 32px;
-    margin-right: 18px;
     
     img {
-      width: 70px;
-      height: auto;
+      height: 96px;
+      width: auto;
     }
   }
 
@@ -188,13 +182,6 @@
       min-width: 0;
     }
 
-    .embla__buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 32px;
-    }
   }
 
   // Column for desktop (2 cards stacked)
@@ -224,19 +211,11 @@
 
       @include md-up {
         gap: 24px;
-      }
+      } 
     }
 
     .embla__slide {
       min-width: 0;
-    }
-
-    .embla__buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 24px;
     }
   }
 
@@ -364,7 +343,7 @@
   }
 
   &__google-logo-footer {
-    height: 42px;
+    height: 66px;
     display: flex;
     align-items: center;
     justify-content: center;

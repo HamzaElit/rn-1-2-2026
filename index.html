@@ -867,20 +867,9 @@
           </div>
           <div class="rn-google-reviews__rating-container">
             <div class="rn-google-reviews__rating-content">
-              <div class="rn-google-reviews__rating-score">
-                <p class="rn-google-reviews__rating-number">5.0</p>
-                <div class="rn-google-reviews__stars">
-                  <img src="assets/images/starts.svg" alt="5 stars" />
-                </div>
-              </div>
               <div class="rn-google-reviews__google-logo">
                 <img src="assets/images/google-desktop.svg" alt="Google"
                   class="rn-google-reviews__google-logo-desktop" />
-                <img src="assets/images/google-mobile.svg" alt="Google" class="rn-google-reviews__google-logo-mobile" />
-              </div>
-              <div class="rn-google-reviews__rating-text">
-                <p class="rn-google-reviews__google-text">Google</p>
-                <p class="rn-google-reviews__bewertung-text">Bewertung</p>
               </div>
             </div>
           </div>
@@ -1454,13 +1443,71 @@
               <div class="rn-google-reviews__google-logo-footer">
                 <img src="assets/images/google-mobile.svg" alt="Google" />
               </div>
-              <div class="rn-google-reviews__stars-footer">
-                <img src="assets/images/starts.svg" alt="5 stars" />
-              </div>
             </div>
           </div>
 
-          <button class="btn btn--secondary">Eignung prüfen</button>
+          <button class="btn btn--primary">Eignung prüfen</button>
+        </div>
+      </div>
+    </section>
+    <section class="rn-image-gallery">
+      <picture class="rn-image-gallery__poster-bg">
+        <source media="(min-width: 1024px)" srcset="assets/images/Image-gallery-bg.svg" />
+        <source media="(min-width: 768px)" srcset="assets/images/Image-gallery-bg-tablet.svg" />
+        <img src="assets/images/Image-gallery-bg-mobile.svg" alt="Image Gallery" class="rn-image-gallery__poster-bg" />
+      </picture>
+      <div class="container">
+        <div class="rn-image-gallery__content">
+          <picture class="rn-image-gallery__poster">
+            <source media="(min-width: 1024px)" srcset="assets/images/Image-gallery.webp" />
+            <source media="(min-width: 768px)" srcset="assets/images/Image-gallery-tablet.webp" />
+            <img src="assets/images/Image-gallery-mobile.webp" alt="Image Gallery" class="rn-image-gallery__poster-img" />
+          </picture>
+        </div>
+      </div>
+    </section>
+    <section class="rn-3d-simulation">
+      <div class="rn-3d-simulation__shape">
+        <img src="assets/images/3d-shape.svg" alt="" class="rn-3d-simulation__shape-img">
+      </div>
+      <div class="container">
+        
+        <div class="rn-3d-simulation__grid">
+          <!-- Text Block -->
+          <div class="rn-3d-simulation__text-block">
+            <h2 class="rn-3d-simulation__title">
+              Jeder kennt mindestens eine Person mit einer schlecht operierten Nase.
+            </h2>
+            <p class="rn-3d-simulation__subtitle">
+              Sei du nicht diese Person.
+            </p>
+          </div>
+
+          <!-- Video Container -->
+          <div class="rn-3d-simulation__video-wrapper">
+            <div class="rn-custom-vimeo rn-3d-simulation__video" data-vimeo-id="1150627922">
+              <div class="rn-custom-vimeo__poster">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="assets/images/3d-video-cover-mobile.png">
+                  <img src="assets/images/3d-video-cover.png" alt="3D Simulation Video" class="rn-custom-vimeo__poster-img">
+                </picture>
+              </div>
+              <div class="rn-custom-vimeo__play-btn">
+                <img src="assets/images/play-icon.svg" alt="Play" class="rn-custom-vimeo__play-icon">
+              </div>
+              <div class="rn-custom-vimeo__iframe-wrp"></div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="rn-3d-simulation__description">
+            Mit der 3D-Simulation bestimmst du schon vor der Operation gemeinsam mit deinem Arzt, wie deine Nase aussehen soll.
+          </p>
+          
+          <!-- CTA Button -->
+          <div class="rn-3d-simulation__cta">
+            <a href="#" class="btn btn--secondary">Behandlung planen</a>
+          </div>
         </div>
       </div>
     </section>

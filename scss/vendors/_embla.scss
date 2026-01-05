@@ -215,15 +215,18 @@
   margin-top: 1.8rem;
 }
 
+// ========================================
+// Unified Embla Slider Buttons
+// ========================================
 .embla__buttons {
   display: flex;
-  justify-content: center;
-  gap: 12px; // Mobile gap first
+  gap: 2.4rem;
   align-items: center;
-  margin: 15px auto 25px auto;
+  justify-content: center;
+  margin: 1.5rem auto 1rem auto;
 
   @include md-up {
-    gap: 25px; // Larger gap for bigger screens
+    margin: 1.5rem auto 0 auto;
   }
 
   &.to-right {
@@ -266,25 +269,45 @@
 }
 
 .embla__button {
+  background: transparent;
+  border: none;
   cursor: pointer;
-  display: inline-block;
-  width: 30px; // Mobile size first
-  height: 30px; // Mobile size first
-  background-color: var(--color__site-primary);
-  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.2s ease;
 
-  &.light {
-    background-color: var(--color__site-primary);
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+    transform: scale(1.05);
   }
 
-  @include md-up {
-    width: 56px; // Larger size for bigger screens
-    height: 56px; // Larger size for bigger screens
+  &:disabled,
+  &.is-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
-}
 
-.embla__button:disabled {
-  color: var(--detail-high-contrast);
+  svg {
+    display: block;
+
+    &.desktop {
+      display: none;
+
+      @include lg-up {
+        display: block;
+      }
+    }
+
+    &.mobile {
+      display: block;
+
+      @include lg-up {
+        display: none;
+      }
+    }
+  }
 }
 
 .embla__button__svg {
