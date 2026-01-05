@@ -168,7 +168,7 @@ details {
     }
   }
 
-  .accordion__quesion {
+  .user-profile{
     cursor: pointer;
     position: relative;
 
@@ -185,51 +185,20 @@ details {
       font-size: 0;
     }
     .icon {
-      content: " ";
       width: 2.4rem;
       height: 2.4rem;
-      border-radius: 50%;
       background-color: transparent;
       display: inline-block;
       position: absolute;
-      top: 50%;
-      transform: translateY(calc(-50% + 1px));
+      top: 0;
       right: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='35' height='35' rx='17.5' stroke='%231A46DA'/%3E%3Cpath d='M9.96896 14.4693C10.0386 14.3995 10.1213 14.3442 10.2124 14.3065C10.3034 14.2687 10.401 14.2493 10.4996 14.2493C10.5981 14.2493 10.6957 14.2687 10.7868 14.3065C10.8778 14.3442 10.9606 14.3995 11.0302 14.4693L17.9996 21.4396L24.969 14.4693C25.1097 14.3285 25.3006 14.2495 25.4996 14.2495C25.6986 14.2495 25.8895 14.3285 26.0302 14.4693C26.1709 14.61 26.25 14.8009 26.25 14.9999C26.25 15.1989 26.1709 15.3898 26.0302 15.5305L18.5302 23.0305C18.4606 23.1003 18.3778 23.1556 18.2868 23.1933C18.1957 23.2311 18.0981 23.2505 17.9996 23.2505C17.901 23.2505 17.8034 23.2311 17.7124 23.1933C17.6213 23.1556 17.5386 23.1003 17.469 23.0305L9.96896 15.5305C9.89923 15.4609 9.84391 15.3782 9.80616 15.2871C9.76842 15.1961 9.74899 15.0985 9.74899 14.9999C9.74899 14.9013 9.76842 14.8037 9.80616 14.7127C9.84391 14.6216 9.89923 14.5389 9.96896 14.4693Z' fill='%231A46DA'/%3E%3C/svg%3E%0A");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
       @include lg-up {
-        width: 3.2rem;
-        height: 3.2rem;
-      }
-    }
-    &::before,
-    &::after {
-      content: " ";
-      width: 10px;
-      height: 1.2px;
-      display: inline-block;
-      position: absolute;
-      right: 0.7rem;
-      transform: none; // Mobile transform first
-      transition: 0.3s all ease;
-      background-color: var(--Deep-Blue);
-      background-image: none;
-      border-radius: 50vh;
-      z-index: 1;
-      top: calc(50%);
-      transform: translateY(-50%);
-      @include lg-up {
-        top: 50%;
-        width: 14px;
-        height: 2px;
-        right: 9px;
-      }
-    }
-    &::before {
-      transform: rotate(-90deg);
-    }
-    &::after {
-      transform: translateY(calc(-50% + 0.8px));
-      @include lg-up {
-        transform: translateY(calc(-50% + 1.2px));
+        width: 3.6rem;
+        height: 3.6rem;
       }
     }
   }
@@ -279,7 +248,7 @@ details {
       }
     }
 
-    .accordion__quesion {
+    .user-profile{
       &::after {
         transform: rotate(180deg);
       }
@@ -287,6 +256,36 @@ details {
         transform-origin: center;
         transform: rotate(0);
       }
+    }
+  }
+}
+
+// FAQ Specific Overrides (for rn-faq section)
+.rn-faq {
+  details.accordion__item {
+    background-color: transparent;
+    border-bottom: 1px solid var(--Deep-Blue);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .user-profile{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    
+    // Hide the old ::before and ::after for FAQ
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  details.accordion__item[open] {
+    .accordion__answer {
+      padding: 0;
     }
   }
 }

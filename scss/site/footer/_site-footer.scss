@@ -1,55 +1,160 @@
 .rn-footer {
-  &__container {
-    padding: 2rem 0;
+  background-color: var(--White-Bg);
+  border-top: 1px solid var(--Light-Grey);
+  padding: 2rem 0 4rem;
+  
+  @include md-up {
+    padding: 2rem 0 6rem;
+  }
+  
+  @include lg-up {
+    padding: 4rem 0 8rem;
+  }
+  
+  &__content {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 3.2rem;
-    // width: calc(100% - 4rem);
-    align-items: flex-start;
-    @include md-up {
+    flex-direction: column;
+    gap: 2rem;
+    
+    @include lg-up {
+      flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      gap: 2rem;
     }
-    @include xl-up {
-      width: min(calc(100% - 4rem), 125rem);
+    
+    @include lg-up {
+      gap: 2rem;
     }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+  }
+  
+  &__logo {
+    opacity: 0.9;
+    flex-shrink: 0;
+    
+    img {
+      width: 12.3636rem;
+      height: 3.2rem;
+      display: block;
+      
       @include md-up {
-        padding: 2rem 0;
-        gap: 4rem;
-        flex-direction: row;
-        align-items: center;
+        width: 18.5455rem;
+        height: 4.8rem;
       }
-      @include xxl-up {
-        gap: 10rem;
+    }
+  }
+  
+  &__info {
+    max-width: 55rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    width: 100%;
+    
+    @include md-up {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14rem;
+    }
+  }
+  
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    
+    @include md-up {
+      gap: 2.4rem;
+    }
+  }
+  
+  &__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    
+    span {
+      font-family: var(--font-noto-sans);
+      font-size: 1.2rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--Dark-Grey);
+      white-space: nowrap;
+      
+      @include md-up {
+        font-size: 1.4rem;
       }
-      li {
-        font-size: 1.2rem;
-        @include md-up {
-          font-size: 1.4rem;
-        }
-        @include lg-up {
-          font-size: 1.6rem;
-        }
-        a {
-          color: var(--white);
-          font-size: 1.2rem;
-          @include md-up {
-            font-size: 1.4rem;
-          }
-          @include lg-up {
-            font-size: 1.6rem;
-          }
-        }
-      }
+    }
+  }
+  
+  &__contact-link {
+    font-family: var(--font-noto-sans);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--Dark-Grey);
+    text-decoration: none;
+    white-space: nowrap;
+    @include transition(color 0.3s ease);
+    
+    @include md-up {
+      font-size: 1.4rem;
+    }
+    
+    @include hover {
+      color: var(--Primary);
+    }
+  }
+  
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    
+    @include md-up {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+    
+    path {
+      fill: var(--Dark-Grey);
+    }
+  }
+  
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    
+    @include md-up {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 2.4rem;
+      width: auto;
+      min-width: 10rem;
+    }
+  }
+  
+  &__link {
+    font-family: var(--font-noto-sans);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--Dark-Grey);
+    text-decoration: none;
+    white-space: nowrap;
+    @include transition(color 0.3s ease);
+    
+    @include md-up {
+      font-size: 1.4rem;
+    }
+    
+    @include hover {
+      color: var(--Primary);
     }
   }
 }

@@ -1,0 +1,285 @@
+.rn-faq {
+  background-color: var(--White-Bg);
+  padding: 4rem 0 6rem;
+
+  @include md-up {
+    padding: 6rem 0;
+  }
+
+  @include lg-up {
+    padding: 10rem 0;
+  }
+
+  // Main Grid Layout
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    @include lg-up {
+      grid-template-columns: 400px 1fr;
+      gap: 8rem;
+      align-items: start;
+    }
+  }
+
+  // Left Section (Desktop Only)
+  &__left-section {
+    display: none;
+
+    @include lg-up {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+  }
+
+  // Right Section
+  &__right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    @include md-up {
+      gap: 3.2rem;
+    }
+
+    @include lg-up {
+      gap: 0;
+    }
+  }
+
+  // Header
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    @include lg-up {
+      gap: 1.6rem;
+    }
+  }
+
+  // Mobile/Tablet Header
+  &__header-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+
+    @include md-up {
+      gap: 1.2rem;
+    }
+
+    @include lg-up {
+      display: none;
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: var(--font-titles);
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: var(--Blue);
+    font-weight: 400;
+
+    @include lg-up {
+      font-size: 4.2rem;
+      text-align: left;
+    }
+  }
+
+  // Subtitle
+  &__subtitle {
+    font-family: var(--font-text);
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: var(--Dark-Grey);
+    font-weight: 400;
+
+    @include md-up {
+      max-width: 50rem;
+      margin: 0 auto;
+    }
+
+    @include lg-up {
+      max-width: 34.2rem;
+      margin: 0;
+    }
+  }
+
+  // Accordion List
+  &__accordion-list {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  // FAQ Item
+  &__item {
+    background-color: transparent;
+    border-bottom: 1px solid #E1E3E4 !important;
+    
+    padding: 16px 0;
+    @include md-up {
+        padding: 24px 0;
+    }
+    @include lg-up {
+        padding: 25px 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  // FAQ Question
+  &__question {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--font-text);
+    font-size: 1.6rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--Black);
+    background-color: transparent;
+    border: none;
+    position: relative;
+
+    @include md-up {
+      gap: 1.2rem;
+    }
+
+    @include lg-up {
+      font-size: 2.2rem;
+      gap: 1.6rem;
+    //   padding: 0 0 2rem 0;
+    }
+
+    &::marker {
+      display: none;
+    }
+
+    // Icon Container
+    .icon {
+      flex-shrink: 0;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-color: transparent;
+      transition: all 0.3s ease;
+      background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='35' height='35' rx='17.5' stroke='%231A46DA'/%3E%3Cpath d='M9.96896 14.4693C10.0386 14.3995 10.1213 14.3442 10.2124 14.3065C10.3034 14.2687 10.401 14.2493 10.4996 14.2493C10.5981 14.2493 10.6957 14.2687 10.7868 14.3065C10.8778 14.3442 10.9606 14.3995 11.0302 14.4693L17.9996 21.4396L24.969 14.4693C25.1097 14.3285 25.3006 14.2495 25.4996 14.2495C25.6986 14.2495 25.8895 14.3285 26.0302 14.4693C26.1709 14.61 26.25 14.8009 26.25 14.9999C26.25 15.1989 26.1709 15.3898 26.0302 15.5305L18.5302 23.0305C18.4606 23.1003 18.3778 23.1556 18.2868 23.1933C18.1957 23.2311 18.0981 23.2505 17.9996 23.2505C17.901 23.2505 17.8034 23.2311 17.7124 23.1933C17.6213 23.1556 17.5386 23.1003 17.469 23.0305L9.96896 15.5305C9.89923 15.4609 9.84391 15.3782 9.80616 15.2871C9.76842 15.1961 9.74899 15.0985 9.74899 14.9999C9.74899 14.9013 9.76842 14.8037 9.80616 14.7127C9.84391 14.6216 9.89923 14.5389 9.96896 14.4693Z' fill='%231A46DA'/%3E%3C/svg%3E%0A");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      @include lg-up {
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+
+      // Arrow SVG
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+
+        @include lg-up {
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+    }
+
+    // Remove the old ::before and ::after
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  // FAQ Answer
+  &__answer {
+    padding: 0 0 1.6rem 3.6rem;
+
+    @include md-up {
+      padding: 0 0 2.4rem 3.6rem;
+    }
+
+    @include lg-up {
+      padding: 0 0 2rem 5.2rem;
+    }
+
+    p {
+      font-family: var(--font-text);
+      font-size: 1.6rem;
+      line-height: 1.4;
+      color: var(--Black);
+      font-weight: 400;
+
+      @include lg-up {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  // Open State
+  &__item[open] {
+    .rn-faq__question {
+      padding-bottom: 1.2rem;
+
+      @include lg-up {
+        padding-bottom: 1.6rem;
+      }
+
+      .icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // CTA Desktop
+  &__cta-desktop {
+    display: none;
+
+    @include lg-up {
+      display: block;
+
+      .btn {
+        width: 100%;
+        max-width: 38rem;
+      }
+    }
+  }
+
+  // CTA Mobile
+  &__cta-mobile {
+    display: block;
+    margin-top: 0.8rem;
+
+    @include lg-up {
+      display: none;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+}
+.rn-faq__accordion-list .rn-faq__item{
+    &:last-child{
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+    }
+    &:first-child{
+        padding-top: 0 !important;
+    }
+}
