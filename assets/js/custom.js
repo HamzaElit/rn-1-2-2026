@@ -540,4 +540,44 @@ window.addEventListener("load", function () {
       videoCard.classList.add("active");
     });
   });
+
+  // YouTube video player functionality
+  document.querySelectorAll(".rn-custom-youtube")?.forEach(function (videoCard) {
+    videoCard.addEventListener("click", function () {
+      // If already playing, don't recreate the iframe
+      if (videoCard.classList.contains("active")) return;
+      
+      // Close all other videos
+      document.querySelectorAll(".rn-custom-youtube").forEach(function (card) {
+        card.classList.remove("active");
+        const wrapper = card.querySelector(".rn-custom-youtube__iframe-wrp");
+        if (wrapper) {
+          wrapper.innerHTML = "";
+        }
+      });
+
+      // Get video ID and create iframe
+      const youtubeId = this.getAttribute("data-youtube-id");
+      const iframe = document.createElement("iframe");
+      const iframeWrapper = videoCard.querySelector(".rn-custom-youtube__iframe-wrp");
+      
+      if (!youtubeId || !iframeWrapper) return;
+
+      // Set iframe attributes
+      iframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+      iframe.frameBorder = "0";
+      iframe.allow = "autoplay; fullscreen; picture-in-picture; encrypted-media";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.position = "absolute";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.allowFullscreen = true;
+
+      // Add iframe to wrapper and mark as active
+      iframeWrapper.innerHTML = "";
+      iframeWrapper.appendChild(iframe);
+      videoCard.classList.add("active");
+    });
+  });
 });
