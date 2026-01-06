@@ -190,6 +190,11 @@
     }
 
     .embla__viewport {
+      width: calc(100% + 2rem);
+      @include lg-up {
+        width: 100%;
+      }
+     
       overflow: hidden;
     }
 

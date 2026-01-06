@@ -431,11 +431,13 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transform: rotate(90deg);
     @include transition(transform 0.3s ease);
 
     @include md-up {
       width: 3.2rem;
       height: 3.2rem;
+      transform: rotate(0);
     }
 
     img {

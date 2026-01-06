@@ -1,16 +1,16 @@
 .rn-doctor {
     background-color: var(--White-Bg);
-    padding: 4rem 2rem 6rem;
+    padding: 4rem 0 6rem;
     position: relative;
     overflow: hidden;
     // max-width: 1520px;
     margin: auto;
     @include md-up {
-        padding: 6rem 8rem;
+        padding: 6rem 0;
     }
 
     @include xl-up {
-        padding: 10rem 9.6rem;
+        padding: 16.8rem 0;
     }
 
     .container {
@@ -40,10 +40,10 @@
         }
 
         @include xl-up {
-            left: -12.2rem;
+            left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 51.2rem;
+            width: auto;
             height: 73rem;
         }
 
@@ -87,8 +87,9 @@
         @include xl-up {
             text-align: left;
             flex-shrink: 0;
-            width: 36rem;
+            width: 39rem;
             gap: 1.6rem;
+            padding-left: 3.2rem;
         }
     }
 

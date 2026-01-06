@@ -116,12 +116,12 @@
       gap: 2.4rem;
     }
 
-    &--reverse {
-      flex-direction: row-reverse;
-      @include md-up {
-        flex-direction: row;
-      }
-    }
+    // &--reverse {
+    //   flex-direction: row-reverse;
+    //   @include md-up {
+    //     flex-direction: row;
+    //   }
+    // }
   }
 
   &__step-number {
