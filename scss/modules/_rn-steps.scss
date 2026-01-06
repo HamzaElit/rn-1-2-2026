@@ -1,13 +1,13 @@
 .rn-steps {
   background-color: var(--White-Bg);
-  padding: 4rem 2rem;
+  padding: 4rem 0;
 
   @include md-up {
-    padding: 6rem 8rem;
+    padding: 6rem 0;
   }
 
   @include xl-up {
-    padding: 8rem 9.6rem;
+    padding: 8rem 0;
   }
 
   &__header {
