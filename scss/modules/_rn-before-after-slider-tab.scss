@@ -121,7 +121,11 @@
     gap: 1.6rem;
     justify-content: space-between;
     overflow-x: auto;
-
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     @include md-up {
       gap: 2rem;
     }
